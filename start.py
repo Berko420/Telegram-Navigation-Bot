@@ -33,13 +33,13 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Create buttons
     keyboard = [
-        [InlineKeyboardButton("📰 חדשות האויב עזה", url="https://t.me/EnemyLiesGAZA")],
-        [InlineKeyboardButton("📰 חדשות האויב לבנון", url="https://t.me/EnemyLiesLEBANON")],
-        [InlineKeyboardButton("📰 חדשות האויב איראן", url="https://t.me/EnemyLiesIRAN")],
-        [InlineKeyboardButton("📰 חדשות ישראל", url="https://t.me/MainIsraelNews")],
-        [InlineKeyboardButton("📰 חדשות האויב - דיונים 🌐", url="https://t.me/EnemyLiesDiscussion")],
-        [InlineKeyboardButton("🌟 أخبار الحقيقة", url="https://t.me/MainIsraelNewsArab")],
-        [InlineKeyboardButton("📞 צור קשר", url="https://t.me/EnemyLiesAdmin")],
+        [InlineKeyboardButton("📰 Channel l 1", url="https://t.me/Channel1")],
+        [InlineKeyboardButton("📰 Channel 2", url="https://t.me/Channe2")],
+        [InlineKeyboardButton("📰 Channel 3", url="https://t.me/Channe3")],
+        [InlineKeyboardButton("📰 Channel 4", url="https://t.me/Channel4")],
+        [InlineKeyboardButton("📰 Group 1 🌐", url="https://t.me/Group1")],
+        [InlineKeyboardButton("🌟 Website 1", url="https://google.com")],
+        [InlineKeyboardButton("📞 Contact", url="https://t.me/Example")],
     ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
