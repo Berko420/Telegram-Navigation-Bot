@@ -1,4 +1,3 @@
-# File: start.py
 import os
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -20,30 +19,30 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(start_message_path, "w", encoding="utf-8") as file:
             file.write(message_text)
 
-    # Send the start message
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=message_text)
-    
-    # Send the image
+    # Send the image first
     logo_path = os.path.join(messages_dir, "image.png")
     try:
         with open(logo_path, "rb") as logo:
             await context.bot.send_photo(chat_id=update.effective_chat.id, photo=logo)
     except FileNotFoundError:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="Image was not found. make sure you have an image in messages/image.png.")
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Image was not found, Make sure image.png is in messages dir.")
+
+    # Send the start message
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=message_text)
 
     # Create buttons
     keyboard = [
-        [InlineKeyboardButton("📰 Channel l 1", url="https://t.me/Channel1")],
-        [InlineKeyboardButton("📰 Channel 2", url="https://t.me/Channe2")],
-        [InlineKeyboardButton("📰 Channel 3", url="https://t.me/Channe3")],
+        [InlineKeyboardButton("📰 Channel 1", url="https://t.me/Channel1")],
+        [InlineKeyboardButton("📰 Channel 2", url="https://t.me/Channel2")],
+        [InlineKeyboardButton("📰 Channel 3", url="https://t.me/Channel3")],
         [InlineKeyboardButton("📰 Channel 4", url="https://t.me/Channel4")],
         [InlineKeyboardButton("📰 Group 1 🌐", url="https://t.me/Group1")],
-        [InlineKeyboardButton("🌟 Website 1", url="https://google.com")],
-        [InlineKeyboardButton("📞 Contact", url="https://t.me/Example")],
+        [InlineKeyboardButton("🌟 Website 1, url="https://t.me/Website1")],
+        [InlineKeyboardButton("📞 Contact", url="https://t.me/Contact")],
     ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="בחר ערוץ:", reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Choose Channel:", reply_markup=reply_markup)
     
     # Log user interaction
     user = update.effective_user
