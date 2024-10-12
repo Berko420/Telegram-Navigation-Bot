@@ -29,7 +29,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(logo_path, "rb") as logo:
             await context.bot.send_photo(chat_id=update.effective_chat.id, photo=logo)
     except FileNotFoundError:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="התמונה לא נמצאה. בבקשה ודא שהקובץ קיים.")
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Image was not found. make sure you have an image in messages/image.png.")
 
     # Create buttons
     keyboard = [
