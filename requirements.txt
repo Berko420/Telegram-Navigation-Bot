@@ -1,0 +1,3 @@
+python-telegram-bot==20.x
+flake8
+pytest
